@@ -13,7 +13,19 @@ from functions import calculate_bet, calculate_best_skill, improve_possible, num
 import time
 
 from pydantic import BaseModel, Field
+from keep_alive import keep_alive
+import websockets
+from loguru import logger
+from flask import Flask
+# Flask application
+app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return "Hello World!"
+
+def run_flask():
+    app.run(debug=True)
 
 init(autoreset=True)
 
@@ -902,6 +914,7 @@ if Data is None:
 if __name__ == "__main__":
     try:
         app = PixelTod()
+        keep_alive()
         app.main()
     except KeyboardInterrupt:
         sys.exit()
