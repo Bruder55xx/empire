@@ -3,3 +3,6 @@ colorama
 cloudscraper
 pydantic-settings
 tzdata
+Flask
+websockets
+loguru
